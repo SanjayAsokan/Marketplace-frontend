@@ -18,12 +18,10 @@ export default function LoginPage() {
   try {
     const res = await login(form);
 
-    // Store role for ProtectedRoute
     localStorage.setItem("role", res.data.role);
 
     dispatch(loginSuccess({ token: res.data.token, user: res.data }));
 
-    // Navigate to the correct dashboard
     if (res.data.role === "admin") navigate("/dashboard/admin", { replace: true });
     else if (res.data.role === "vendor") navigate("/dashboard/vendor", { replace: true });
     else navigate("/dashboard/user", { replace: true });

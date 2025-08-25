@@ -3,75 +3,33 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../features/authSlice";
 
 export default function Navbar() {
-  const { user } = useSelector((state) => state.auth); // Get logged-in user
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch(logout());       // Clear Redux state
-    navigate("/");            // Redirect to landing page
+    dispatch(logout());
+    navigate("/");
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-4 flex justify-between items-center shadow-md">
-      {/* Logo / Title */}
-      <div
-        className="text-xl font-bold cursor-pointer"
-        onClick={() => navigate("/")}
-      >
-        Multi-Vendor Marketplace
-      </div>
-
-      {/* Navigation Links */}
-      <div className="flex items-center space-x-4">
-        {!user && (
-          <>
-            <Link to="/login" className="hover:underline">
-              Login
-            </Link>
-            <Link to="/signup" className="hover:underline">
-              Register
-            </Link>
-          </>
-        )}
-
+  <nav className="bg-gray-800 text-white p-4 flex justify-between items-center shadow-md border-b-4 border-yellow-500 sticky top-0 z-50">
+    <div className="text-2xl font-bold cursor-pointer" onClick={() => navigate("/")}> MyMarketplace </div>
+    
+    <div className="flex items-center space-x-4">
+      {!user && (
+        <>
+        <Link to="/login" className="hover:text-yellow-400 transition">Login</Link>
+        <Link to="/signup" className="hover:text-yellow-400 transition">Register</Link>
+        </>)}
         {user && (
           <>
-            <span className="font-medium">Welcome, {user.name}</span>
+            <span className="font-medium">Hi, {user.name}</span>
+            {user.role === "admin" && <Link to="/dashboard/admin" className="hover:text-yellow-400 transition">Admin</Link>}
+            {user.role === "vendor" && <Link to="/dashboard/vendor" className="hover:text-yellow-400 transition">Vendor</Link>}
+            {user.role === "user" && <Link to="/dashboard/user" className="hover:text-yellow-400 transition">Dashboard</Link>}
 
-            {/* Role-based Dashboard Link */}
-            {user.role === "admin" && (
-              <Link
-                to="/dashboard/admin"
-                className="ml-4 hover:underline"
-              >
-                Admin Dashboard
-              </Link>
-            )}
-            {user.role === "vendor" && (
-              <Link
-                to="/dashboard/vendor"
-                className="ml-4 hover:underline"
-              >
-                Vendor Dashboard
-              </Link>
-            )}
-            {user.role === "user" && (
-              <Link
-                to="/dashboard/user"
-                className="ml-4 hover:underline"
-              >
-                User Dashboard
-              </Link>
-            )}
-
-            {/* Logout Button */}
-            <button
-              onClick={handleLogout}
-              className="ml-4 px-3 py-1 bg-red-500 rounded hover:bg-red-600 transition"
-            >
-              Logout
-            </button>
+            <button onClick={handleLogout} className="ml-3 px-3 py-1 bg-yellow-500 text-gray-900 font-semibold rounded hover:bg-yellow-600 transition" > Logout </button>
           </>
         )}
       </div>

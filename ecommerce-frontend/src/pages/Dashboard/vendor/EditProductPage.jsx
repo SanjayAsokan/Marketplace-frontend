@@ -29,11 +29,11 @@ export default function EditProductPage() {
   return (
     <div
       className="fixed inset-0 bg-black/50 flex justify-center items-center z-50"
-      onClick={() => navigate(-1)} // click outside to close
+      onClick={() => navigate(-1)} 
     >
       <div
         className="bg-gray-900 p-6 rounded-lg w-full max-w-lg"
-        onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+        onClick={(e) => e.stopPropagation()} 
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-semibold text-white">Edit Product</h2>
@@ -49,7 +49,7 @@ export default function EditProductPage() {
           productId={id}
           onProductAdded={() => {
             alert("Product updated successfully!");
-            navigate(-1); // go back to product list
+            navigate(-1); 
           }}
         />
       </div>

@@ -32,64 +32,36 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-
-        {/* Dashboard Routes */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
-
-          {/* Admin */}
-          <Route
-            path="admin"
-            element={<ProtectedRoute allowedRoles={["admin"]}><AdminDashboard /></ProtectedRoute>}
-          />
-
-          {/* Vendor */}
-          <Route
-            path="vendor"
-            element={<ProtectedRoute allowedRoles={["vendor"]}><VendorDashboard /></ProtectedRoute>}
-          />
-          <Route
-            path="vendor/edit-product/:id"
-            element={<ProtectedRoute allowedRoles={["vendor"]}><EditProductPage /></ProtectedRoute>}
-          />
-
-          {/* User */}
-          <Route
-            path="user"
-            element={<ProtectedRoute allowedRoles={["user"]}><UserDashboard /></ProtectedRoute>}
-          />
-          <Route
-            path="user/products"
-            element={<ProtectedRoute allowedRoles={["user"]}><ProductList /></ProtectedRoute>}
-          />
-          <Route
-            path="user/product/:productId"
-            element={<ProtectedRoute allowedRoles={["user"]}><ProductDetails /></ProtectedRoute>}
-          />
-          <Route
-            path="user/cart"
-            element={<ProtectedRoute allowedRoles={["user"]}><Cart /></ProtectedRoute>}
-          />
-          <Route
-            path="user/checkout"
-            element={<ProtectedRoute allowedRoles={["user"]}><Checkout /></ProtectedRoute>}
-          />
-          <Route
-            path="user/orders"
-            element={<ProtectedRoute allowedRoles={["user"]}><OrderHistory /></ProtectedRoute>}
-          />
-        </Route>
-
-        {/* Catch-all */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
-  );
-}
+  <Router>
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      
+      {/* Dashboard Routes */}
+      <Route path="/dashboard" element={<DashboardLayout />}>
+      
+      {/* Admin */}
+      <Route path="admin" element={<ProtectedRoute allowedRoles={["admin"]}><AdminDashboard /></ProtectedRoute>} />
+      
+      {/* Vendor */}
+      <Route path="vendor" element={<ProtectedRoute allowedRoles={["vendor"]}><VendorDashboard /></ProtectedRoute>}/>
+      <Route path="vendor/edit-product/:id" element={<ProtectedRoute allowedRoles={["vendor"]}><EditProductPage /></ProtectedRoute>}/>
+      
+      {/* User */}
+      <Route path="user" element={<ProtectedRoute allowedRoles={["user"]}><UserDashboard /></ProtectedRoute>}/>
+      <Route path="user/products" element={<ProtectedRoute allowedRoles={["user"]}><ProductList /></ProtectedRoute>}/>
+      <Route path="user/product/:productId" element={<ProtectedRoute allowedRoles={["user"]}><ProductDetails /></ProtectedRoute>}/>
+      <Route path="user/cart" element={<ProtectedRoute allowedRoles={["user"]}><Cart /></ProtectedRoute>} />
+      <Route path="user/checkout" element={<ProtectedRoute allowedRoles={["user"]}><Checkout /></ProtectedRoute>}/>
+      <Route path="user/orders" element={<ProtectedRoute allowedRoles={["user"]}><OrderHistory /></ProtectedRoute>}/>
+      </Route>
+      
+      {/* Catch-all */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  </Router>
+);}
 
 export default App;
