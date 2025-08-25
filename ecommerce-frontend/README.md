@@ -4,6 +4,8 @@ This is the frontend of the Multi-Vendor E-Commerce Marketplace built with React
 It provides users with an intuitive UI to browse products, view details, add to cart, place orders, and track order history.
 Vendors can manage their products through a separate dashboard, while admins oversee vendors, products, and analytics.
 
+Deploy Link: https://idyllic-swan-5001c9.netlify.app/
+
 🚀 Features
 👤 User
 
