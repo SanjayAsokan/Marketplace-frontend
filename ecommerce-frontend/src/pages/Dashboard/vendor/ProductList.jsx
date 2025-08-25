@@ -9,7 +9,7 @@ export default function ProductList() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://ecommerce-backend-v6q2.onrender.com/api/products");
       setProducts(res.data.items || []);
     } catch (err) {
       console.error("Error fetching products", err.response?.data || err.message);
@@ -23,7 +23,7 @@ export default function ProductList() {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://ecommerce-backend-v6q2.onrender.com/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(products.filter((product) => product._id !== id));

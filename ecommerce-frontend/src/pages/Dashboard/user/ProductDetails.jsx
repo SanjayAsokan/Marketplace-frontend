@@ -9,7 +9,7 @@ export default function ProductDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/${productId}`)
+      .get(`https://ecommerce-backend-v6q2.onrender.com/api/products/${productId}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error(err));
   }, [productId]);

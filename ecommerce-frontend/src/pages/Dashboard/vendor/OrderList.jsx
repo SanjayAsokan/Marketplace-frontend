@@ -11,7 +11,7 @@ export default function OrderList() {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/orders", {
+      const res = await axios.get("https://ecommerce-backend-v6q2.onrender.com/api/orders", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(res.data);
@@ -24,7 +24,7 @@ export default function OrderList() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/orders/${id}`,
+        `https://ecommerce-backend-v6q2.onrender.com/api/orders/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

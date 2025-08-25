@@ -8,7 +8,7 @@ export default function UserDashboard() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://ecommerce-backend-v6q2.onrender.com/api/products")
       .then((res) => setProducts(res.data.items || []))
       .catch((err) => console.error("Error fetching products:", err))
       .finally(() => setLoading(false));

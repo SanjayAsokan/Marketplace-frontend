@@ -13,7 +13,7 @@ export default function OrderHistory() {
 
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/orders/my-orders",
+          "https://ecommerce-backend-v6q2.onrender.com/api/orders/my-orders",
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setOrders(res.data);

@@ -41,7 +41,7 @@ export default function ProductForm({ onProductAdded }) {
       }
 
       const res = await axios.post(
-        "http://localhost:5000/api/products",
+        "https://ecommerce-backend-v6q2.onrender.com/api/products",
         formData,
         {
           headers: {

@@ -12,7 +12,7 @@ export default function EditProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const res = await axios.get(`https://ecommerce-backend-v6q2.onrender.com/api/products/${id}`);
         setProductData(res.data);
       } catch (err) {
         console.error(err);

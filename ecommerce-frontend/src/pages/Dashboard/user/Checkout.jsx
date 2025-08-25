@@ -42,7 +42,7 @@ export default function Checkout() {
       }
 
       const paymentRes = await axios.post(
-        "http://localhost:5000/api/payments/create",
+        "https://ecommerce-backend-v6q2.onrender.com/api/payments/create",
         { products: cartItems.map(i => ({ product: i._id, quantity: i.quantity })) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -59,7 +59,7 @@ export default function Checkout() {
         handler: async function (response) {
           try {
             await axios.post(
-              "http://localhost:5000/api/payments/verify",
+              "https://ecommerce-backend-v6q2.onrender.com/api/payments/verify",
               {
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_order_id: response.razorpay_order_id,
