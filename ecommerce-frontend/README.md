@@ -1,12 +1,68 @@
-# React + Vite
+🛒 Multi-Vendor E-Commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend of the Multi-Vendor E-Commerce Marketplace built with React + Vite, Tailwind CSS, and Firebase Authentication.
+It provides users with an intuitive UI to browse products, view details, add to cart, place orders, and track order history.
+Vendors can manage their products through a separate dashboard, while admins oversee vendors, products, and analytics.
 
-Currently, two official plugins are available:
+🚀 Features
+👤 User
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Browse all vendor products
 
-## Expanding the ESLint configuration
+View product details
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Add products to cart & checkout
+
+Manage orders & view order history
+
+🛍 Vendor
+
+Add, edit, and delete products
+
+Manage inventory and pricing
+
+Track sales
+
+🛡 Admin
+
+Manage vendors (approve, suspend, remove)
+
+Manage products across vendors
+
+View analytics & revenue reports
+
+🛠 Tech Stack
+
+React (Vite) – Frontend framework
+
+Tailwind CSS – Styling
+
+React Router DOM – Navigation & routing
+
+Firebase Auth – Authentication (login/signup)
+
+Axios – API requests
+
+LocalStorage – Cart & session persistence
+
+📂 Project Structure
+frontend/
+│── public/                # Static assets
+│── src/
+│   ├── components/         # Reusable UI components (Navbar, Footer, etc.)
+│   ├── pages/
+│   │   ├── LandingPage.jsx
+│   │   ├── LoginPage.jsx
+│   │   ├── SignupPage.jsx
+│   │   ├── Dashboard/
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   ├── VendorDashboard.jsx
+│   │   │   └── UserDashboard.jsx
+│   │   └── user/           # User-specific pages (Cart, Orders, etc.)
+│   ├── layouts/            # Dashboard layout wrappers
+│   ├── App.jsx             # Main app routes
+│   ├── main.jsx            # Entry point
+│   └── firebase.js         # Firebase config & init
+│── package.json
+│── tailwind.config.js
+│── README.md
