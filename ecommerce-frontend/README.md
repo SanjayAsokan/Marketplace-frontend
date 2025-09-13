@@ -1,70 +1,149 @@
 🛒 Multi-Vendor E-Commerce Frontend
+---
+Frontend for the Multi-Vendor E-Commerce Marketplace, providing a smooth and responsive user interface for customers, vendors, and admins.
 
-This is the frontend of the Multi-Vendor E-Commerce Marketplace built with React + Vite, Tailwind CSS, and Firebase Authentication.
-It provides users with an intuitive UI to browse products, view details, add to cart, place orders, and track order history.
-Vendors can manage their products through a separate dashboard, while admins oversee vendors, products, and analytics.
+🔗 Live App: https://idyllic-swan-5001c9.netlify.app/
 
-Deploy Link: https://idyllic-swan-5001c9.netlify.app/
 
-🚀 Features
+---
+📌 Introduction
+
+The frontend is built with React (Vite), styled with Tailwind CSS, and uses Redux Toolkit for state management.
+It communicates with the backend API (Node.js + Express + MongoDB) for authentication, products, orders, vendors, and admin operations.
+
+
+---
+✨ Features
+
 👤 User
 
-Browse all vendor products
+  Register & Login (JWT auth via backend)
 
-View product details
+  Browse products across vendors
 
-Add products to cart & checkout
+  View product details
 
-Manage orders & view order history
+  Add to cart & checkout
+
+  View order history
+
 
 🛍 Vendor
 
-Add, edit, and delete products
+  Add, edit, and delete products
 
-Manage inventory and pricing
+  Manage inventory & pricing
 
-Track sales
+  Track sales and order details
+
 
 🛡 Admin
 
-Manage vendors (approve, suspend, remove)
+  Approve, suspend, or remove vendors
 
-Manage products across vendors
+  Manage products across vendors
 
-View analytics & revenue reports
+  View analytics & revenue reports
+
 
 🛠 Tech Stack
 
-React (Vite) – Frontend framework
+  ⚛️ React (Vite) – Frontend framework
 
-Tailwind CSS – Styling
+  🎨 Tailwind CSS – Styling
 
-React Router DOM – Navigation & routing
+  🔗 React Router DOM – Routing
 
-Firebase Auth – Authentication (login/signup)
+  🌐 Axios – API requests to backend
 
-Axios – API requests
+  💾 Redux Toolkit – State management (auth, cart, orders)
 
-LocalStorage – Cart & session persistence
+  🔐 JWT Auth (via backend) – Secure authentication
 
+
+---
 📂 Project Structure
-frontend/
-│── public/                # Static assets
+ecommerce-frontend/
+│── public/              # Static assets
 │── src/
-│   ├── components/         # Reusable UI components (Navbar, Footer, etc.)
+│   ├── api/             # Axios setup & API calls
+│   ├── assets/          # Images & icons
+│   ├── components/      # Reusable UI (Navbar, Footer, ProjectCard, etc.)
+│   ├── features/        # Redux slices (authSlice.js, cart, orders, etc.)
 │   ├── pages/
+│   │   ├── Dashboard/   # Admin, Vendor, and User dashboards
+│   │   ├── user/        # User-specific pages (Cart, Checkout, OrderHistory)
+│   │   ├── vendor/      # Vendor pages (ProductForm, ProductList, Orders, etc.)
 │   │   ├── LandingPage.jsx
 │   │   ├── LoginPage.jsx
 │   │   ├── SignupPage.jsx
-│   │   ├── Dashboard/
-│   │   │   ├── AdminDashboard.jsx
-│   │   │   ├── VendorDashboard.jsx
-│   │   │   └── UserDashboard.jsx
-│   │   └── user/           # User-specific pages (Cart, Orders, etc.)
-│   ├── layouts/            # Dashboard layout wrappers
-│   ├── App.jsx             # Main app routes
-│   ├── main.jsx            # Entry point
-│   └── firebase.js         # Firebase config & init
+│   │   └── ProductDetails.jsx / ProductList.jsx
+│   ├── layouts/         # Layout wrappers (dashboard layouts)
+│   ├── App.jsx          # Main app routes
+│   ├── main.jsx         # Entry point
+│   ├── App.css / index.css
+│
 │── package.json
-│── tailwind.config.js
+│── vite.config.js
+│── eslint.config.js
 │── README.md
+
+
+---
+⚙️ Getting Started
+
+Clone the repository:
+
+git clone https://github.com/your-username/ecommerce-frontend.git
+cd ecommerce-frontend
+
+
+---
+Install dependencies:
+
+npm install
+
+Update the backend API base URL inside your Axios setup (src/api/).
+
+Start development server:
+
+npm run dev
+
+
+---
+📡 API Integration
+
+This frontend communicates with the backend:
+👉 https://ecommerce-backend-v6q2.onrender.com
+
+
+---
+Example APIs used:
+
+POST /api/auth/login – User login
+
+GET /api/products – Fetch all products
+
+POST /api/orders – Place an order
+
+POST /api/vendor/products – Vendor creates product
+
+
+---
+🤝 Contributing
+
+Contributions are welcome 🎉
+
+Fork the repository
+
+Create a new branch
+
+Commit your changes
+
+Push & open a Pull Request 🚀
+
+
+---
+📜 License
+
+This project is licensed under the MIT License.
